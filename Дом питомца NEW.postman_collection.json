@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "746ba720-d666-4c5b-833d-f81a00ad15e7",
+		"name": "Дом питомца NEW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23689705"
+	},
+	"item": [
+		{
+			"name": "Главная страница",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://51.250.89.234/app/pets",
+					"protocol": "http",
+					"host": [
+						"51",
+						"250",
+						"89",
+						"234"
+					],
+					"path": [
+						"app",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Питомец Гоша",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" pm.test(\"Session token exists\", function () {\r",
+							"    pm.expect(pm.cookies.has(\"Session\")).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://51.250.89.234/api/pet/70a41546-3381-4d13-be73-3096ef0cbe0b/",
+					"protocol": "http",
+					"host": [
+						"51",
+						"250",
+						"89",
+						"234"
+					],
+					"path": [
+						"api",
+						"pet",
+						"70a41546-3381-4d13-be73-3096ef0cbe0b",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Приютить Гошу",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "Хочу такого попугая",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test1@yandex.ru",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Александр",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "сергеев",
+							"type": "text"
+						},
+						{
+							"key": "middlename",
+							"value": "сергеевич",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "70a41546-3381-4d13-be73-3096ef0cbe0b",
+							"type": "text"
+						},
+						{
+							"key": "phone_num",
+							"value": "+79055050000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://51.250.89.234/api/pet_shelter_req/",
+					"protocol": "http",
+					"host": [
+						"51",
+						"250",
+						"89",
+						"234"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "comment",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"key": "firstname",
+			"value": "3",
+			"type": "string"
+		},
+		{
+			"key": "lastname",
+			"value": "4",
+			"type": "string"
+		},
+		{
+			"key": "middlename",
+			"value": "5",
+			"type": "string"
+		},
+		{
+			"key": "pet",
+			"value": "6",
+			"type": "string"
+		},
+		{
+			"key": "phone_num",
+			"value": "7",
+			"type": "string"
+		}
+	]
+}
